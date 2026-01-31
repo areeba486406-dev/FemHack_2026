@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Down Dating App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'down-pink': '#FF006A',
+                        'down-purple': '#A734BD',
+                        'down-dark': '#120212',
+                        'card-bg': 'rgba(255, 255, 255, 0.05)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'linear-gradient(90deg, #A734BD 0%, #FF006A 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #120212;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #A734BD 0%, #FF006A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 500px;
+            /* Arbitrary large height */
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="bg-down-dark">
+
+    <!-- Navbar -->
+    <nav class="container mx-auto px-6 py-6 flex items-center justify-between relative z-50">
+        <a href="index.html" class="flex items-center">
+            <img src="img/down_image.jpeg" alt="DOWN Logo" class="h-8 md:h-10">
+        </a>
+
+        <!-- Mobile Menu Button (Hidden on Desktop) -->
+        <button class="md:hidden text-white focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
+        </button>
+
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+            <a href="hero section.html" class="hover:text-white transition">Home</a>
+            <a href="faq.html" class="text-white font-bold transition">FAQ</a>
+            <a href="#" class="hover:text-white transition">Dating Advice</a>
+            <a href="#" class="hover:text-white transition">DOWN Wiki</a>
+            <a href="#" class="hover:text-white transition">Careers</a>
+            <a href="#" class="hover:text-white transition">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="relative pt-12 pb-24 overflow-hidden">
+        <!-- Background Glow -->
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-down-purple/20 to-down-pink/10 blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
+
+            <!-- Left Icon -->
+            <div class="w-full md:w-1/3 flex justify-center md:justify-end">
+                <div class="relative transform rotate-[-6deg]">
+                    <!-- Chat Bubble Icon Image -->
+                    <div class="relative">
+                        <img src="img/FAQ_Sticker.jpeg" alt="FAQ"
+                            class="w-[280px] drop-shadow-2xl hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Text -->
+            <div class="w-full md:w-2/3 text-center md:text-left">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    <span class="text-gradient">Frequently <br> Asked Questions</span>
+                </h1>
+                <p class="text-gray-400 max-w-lg mx-auto md:mx-0">
+                    Non donec molestie purus pulvinar sollicitudin habitasse et diam at mi tristique
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion List -->
+    <section class="pb-32 relative z-10">
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <div class="space-y-4">
+                <!-- Question 1 (Open by default based on design) -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item active">
+                    <button
+                        class="w-full px-8 py-6 text-left flex items-center justify-between font-bold text-lg hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>What is DOWN Dating App?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300 leading-relaxed space-y-4">
+                            <p>DOWN Dating App is the most honest in dating and hookup apps. With DOWN Dating, you can
+                                choose whether you want a more serious relationship or pure hookups.</p>
+                            <p>Along with dating apps like Tinder, Bumble, and Hinge, DOWN is listed as a top 20 dating
+                                app in the U.S.</p>
+                            <p>As the top dating app on android and iOS, we have an open mind; we view sexuality as a
+                                healthy, natural, and crucial aspect in relationships. We are adults, so sexual
+                                intention and attraction shouldn't be shamed for (especially in an adult dating app).
+                            </p>
+                            <p>We want you to have fun with your dating app matches, and we believe it's healthier if
+                                people are up-front with what they want by specifying if they want to GET (a) DATE or
+                                GET DOWN.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurring Questions -->
+                <!-- 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>How do I create an account for DOWN Dating App?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            You can sign up using your Facebook account or Google account. We prioritize privacy and
+                            will never post on your behalf.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>Wait, so how do I use DOWN Dating App? I don't swipe left or right?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Instead of swiping, you can scroll through profiles and choose to swipe UP (Get Down) or
+                            swipe DOWN (Get Date).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>What is Get DATE and Get DOWN?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            'Get Date' means you are interested in a serious relationship or a date. 'Get Down' implies
+                            you are looking for something more casual or a hookup.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>What is Snap Match?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Snap Match is a feature that allows you to instantly match with someone for a quick chat,
+                            speeding up the connection process.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>Will I be notified if I got a dating app match?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Yes, you will receive a push notification whenever you get a new match or a message.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>What if someone swiped UP on me, but I swiped DOWN? Are we dating app matches?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Yes! A match is created regardless of whether the intent was 'Get Date' or 'Get Down',
+                            allowing you to chat and clarify what you are looking for.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>Can I see dating profiles I previously liked?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Currently, you cannot view a history of profiles you have liked unless they match with you.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>Can I see dating profiles that swiped UP/DOWN on me?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            With a premium subscription, you can unlock the list of people who have already liked you.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>What are Nearby Picks (Daily Picks) and how are they selected?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Nearby Picks are curated profiles selected based on your location and preferences to give
+                            you the best potential matches for the day.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>Can I search based on location/sexual preference/relationship?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Yes, you can adjust your search filters in the settings menu to refine your matches based on
+                            these criteria.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>How do I report another user on DOWN Dating App?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Go to the user's profile, tap on the three dots or shield icon, and select 'Report'. Follow
+                            the prompts to submit your report.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>How do I undo a match?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            To unmatch, open the chat with the user, access the options menu, and select 'Unmatch'.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>I accidentally unmatched someone, can I restore the match?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Unfortunately, unmatching is permanent and cannot be undone for privacy and safety reasons.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>I keep trying to join but I can't! What's happening?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Ensure you have a stable internet connection and are using the latest version of the app. If
+                            issues persist, contact support.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 16 -->
+                <div class="glass-card rounded-2xl overflow-hidden faq-item">
+                    <button
+                        class="w-full px-8 py-5 text-left flex items-center justify-between font-bold hover:bg-white/5 transition"
+                        onclick="toggleFaq(this)">
+                        <span>As sad as it is, I think it's time to delete my account. How do I do this?</span>
+                        <svg class="w-5 h-5 text-gray-400 faq-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="faq-content bg-black/20 px-8">
+                        <div class="py-6 text-sm text-gray-300">
+                            Go to Settings > Account > Delete Account to permanently remove your profile and data from
+                            DOWN.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-[#120212] border-t border-white/5 mt-auto relative overflow-hidden">
+        <!-- Background Glow for Footer -->
+        <div
+            class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-down-pink/5 blur-[120px] rounded-full pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <!-- Top Section: Logo & Nav -->
+            <div class="flex flex-col md:flex-row justify-between items-start mb-12">
+                <!-- Left: Logo -->
+                <div class="mb-8 md:mb-0">
+                    <img src="img/down_image.jpeg" alt="DOWN" class="h-8 mb-6">
+                </div>
+
+                <!-- Right: Nav Links -->
+                <div class="flex flex-wrap gap-x-8 gap-y-4 text-sm font-medium text-gray-300">
+                    <a href="hero section.html" class="hover:text-white transition">Home</a>
+                    <a href="faq.html" class="hover:text-white transition">FAQ</a>
+                    <a href="#" class="hover:text-white transition">Dating Advice</a>
+                    <a href="#" class="hover:text-white transition">DOWN Wiki</a>
+                    <a href="#" class="hover:text-white transition">Careers</a>
+                    <a href="#" class="hover:text-white transition">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Middle Section: Text & Socials -->
+            <div class="flex flex-col md:flex-row justify-between items-start mb-20">
+                <!-- Left: Description -->
+                <div class="max-w-md text-sm text-gray-400 leading-relaxed mb-8 md:mb-0">
+                    <p>The honest dating app that puts YOU in control!</p>
+                    <p>We encourage users to be honest to form a real, trustworthy, and transparent connection.</p>
+                </div>
+
+                <!-- Right: Social Icons -->
+                <div class="flex gap-6">
+                    <!-- Facebook -->
+                    <a href="#" class="text-white hover:text-down-pink transition transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" class="text-white hover:text-down-pink transition transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                    <!-- Twitter / X -->
+                    <a href="#" class="text-white hover:text-down-pink transition transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                    <!-- Medium -->
+                    <a href="#" class="text-white hover:text-down-pink transition transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="#" class="text-white hover:text-down-pink transition transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Copyright & Policy -->
+            <div
+                class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 pt-8 border-t border-white/5">
+                <div class="mb-4 md:mb-0">&copy; 2022 Down. All Rights Reserved</div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition">Privacy & Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const content = button.nextElementSibling;
+
+            // Close other items (optional - accordion behavior)
+            /*
+            document.querySelectorAll('.faq-item').forEach(el => {
+                if(el !== item && el.classList.contains('active')) {
+                    el.classList.remove('active');
+                }
+            });
+            */
+
+            // Toggle current
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
